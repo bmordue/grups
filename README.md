@@ -8,26 +8,22 @@ Quick start:
 nix develop
 ```
 
-2. Start Postgres via Docker Compose:
+
+2. Setup database (SQLite):
 
 ```bash
-make up
-```
-
-3. Copy example env and (optional) set `DATABASE_URL`:
-
-```bash
-cp .env.example .env
-export DATABASE_URL="$(cat .env | sed -n 's/^DATABASE_URL=//p')"
-```
-
-4. Run the initial migration:
-
-```bash
+nix develop
 make migrate
 ```
 
-5. Run the server:
+3. Copy example env (optional):
+
+```bash
+cp .env.example .env
+export DATABASE_URL="./data/grups.db"
+```
+
+4. Run the server:
 
 ```bash
 make run

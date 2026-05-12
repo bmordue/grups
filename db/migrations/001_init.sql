@@ -1,5 +1,5 @@
--- initial schema for grups
+-- initial schema for grups (SQLite)
 CREATE TABLE IF NOT EXISTS users (
-  id SERIAL PRIMARY KEY,
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT NOT NULL
 );

@@ -1,13 +1,9 @@
-.PHONY: up down run migrate
 
-up:
-	docker compose up -d
-
-down:
-	docker compose down
+.PHONY: run migrate
 
 run:
-	go run ./cmd/server
+	CGO_ENABLED=0 go run ./cmd/server
 
 migrate:
-	psql "$$DATABASE_URL" -f db/migrations/001_init.sql
+	mkdir -p data
+	sqlite3 ./data/grups.db < db/migrations/001_init.sql

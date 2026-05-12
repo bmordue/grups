@@ -15,16 +15,15 @@
           buildInputs = [
             pkgs.go
             pkgs.git
-            pkgs.docker
-            pkgs.docker-compose
-            pkgs.postgresql
+            pkgs.sqlite
             pkgs.gnumake
           ];
 
           shellHook = ''
             export CGO_ENABLED=0
             export GOFLAGS='-mod=mod'
-            echo "Entered dev shell. Run: make up && make migrate && make run"
+            echo "Entered dev shell. Run migrations: make migrate"
+            echo "Then run: make run"
           '';
         };
       });
